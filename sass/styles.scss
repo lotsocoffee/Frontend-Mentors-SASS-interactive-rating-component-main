@@ -1,0 +1,101 @@
+@use 'variables';
+@use 'initial-setup';
+@use  'mixins';
+@use 'footer';
+
+/*---------rating state---------*/
+.rating-state{
+    background-color: variables.$Dark-Blue;
+    width: 327px;
+    height: 364px;
+    border-radius: 16px;
+    margin: 195px auto 80px;
+    padding: 24px;
+    &__image-container{
+        background-color: variables.$Medium-Grey;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    margin-bottom: 22px;
+    color: variables.$Light-Grey;
+    }
+    &__number{
+        @extend .rating-state__image-container;
+    }
+    &__title{
+        color: variables.$White;
+        margin-bottom: 22px;
+        font-size: 1.6em;
+        font-weight: 400;
+    }
+    &__description{
+        color: variables.$Light-Grey;
+        margin-bottom: 30px;
+        letter-spacing: -0.5px;
+    }
+    &__number-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__number:hover{
+        cursor: pointer;
+        background: variables.$Orange;
+        color: variables.$White;
+    }
+    &__number:focus{
+        background: variables.$Orange;
+        color: variables.$White;
+    }
+    &__button{
+        width: 100%;
+        height: 44px;
+        border: none;
+        border-radius: 50px;
+        background-color: variables.$Orange;
+        text-transform: uppercase;
+        color:variables.$White;
+        font-weight: 700;
+        letter-spacing: 3px;
+    }
+    &__button:hover{
+        cursor: pointer;
+        background: variables.$White;;
+        color: variables.$Orange;
+    }
+    @include mixins.desktop;
+}
+/*---------Thank you state---------*/
+.thankyou-state{
+    @extend .rating-state;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    &__title{
+        @extend .rating-state__title;
+    } 
+    &__description{
+        @extend .rating-state__description;
+    } 
+    &__image{
+        width: 150px;
+        margin-bottom: 24px;
+    } 
+    &__result{
+        background-color: variables.$Medium-Grey;
+        width: 170px;
+        height: 36px;
+        border-radius: 50px;
+        color: variables.$Orange;
+        text-align: center;
+        padding: 8px 0;
+        margin-bottom: 30px;
+        font-size: 0.9em;
+    }
+    &__description{
+        text-align: center;
+    }
+    @include mixins.desktop;
+}
